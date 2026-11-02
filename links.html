@@ -326,23 +326,6 @@
             </div>
           </section>
 
-        <nav class="page-pagination" aria-label="More rooms">
-          <a href="./guestbook.html" rel="prev">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-            <span>
-              <small>previous room</small>
-              <b>/guestbook</b>
-            </span>
-          </a>
-          <a href="./index.html" rel="next">
-            <span>
-              <small>back to the entrance</small>
-              <b>/home</b>
-            </span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </nav>
-
           <footer class="site-footer">
             <div class="footer-ornament" aria-hidden="true">
               ‧₊˚✧ ⊹ ˚ . ✧˚₊‧
@@ -363,9 +346,95 @@
           </footer>
         </main>
       </div>
+      <aside class="music-widget" id="music-widget" aria-label="Midnight FM music player">
+        <div class="music-widget-heading">
+          <a href="./music.html" title="Visit midnight FM">
+            <span aria-hidden="true">♫</span> midnight fm
+          </a>
+          <button
+            type="button"
+            class="music-widget-expand"
+            id="music-widget-expand"
+            aria-label="Show more player controls"
+            aria-expanded="false"
+            aria-controls="music-widget-details"
+          >
+            <span id="music-widget-expand-icon" aria-hidden="true">＋</span>
+          </button>
+        </div>
+        <div class="music-widget-current">
+          <div class="disc-wrap" id="disc-wrap" aria-hidden="true">
+            <div class="disc"><span id="disc-number">01</span></div>
+          </div>
+          <div class="player-main">
+            <p class="player-label" id="player-label">now paused</p>
+            <h2 id="track-title">plastic moon</h2>
+          </div>
+        </div>
+        <div class="player-controls music-widget-transport">
+          <button type="button" id="previous-track" aria-label="Previous track" title="Previous track">
+            <span aria-hidden="true">◀◀</span>
+          </button>
+          <button type="button" class="play-button" id="play-toggle" aria-label="Play music">
+            <span aria-hidden="true" id="play-icon">▶</span>
+          </button>
+          <button type="button" id="next-track" aria-label="Next track" title="Next track">
+            <span aria-hidden="true">▶▶</span>
+          </button>
+          <span class="time-readout" id="time-readout">0:00 / 0:32</span>
+        </div>
+        <p class="player-error" id="player-error" role="status" aria-live="polite" hidden></p>
+        <div class="music-widget-details" id="music-widget-details" hidden>
+          <input
+            class="seek-slider"
+            id="seek"
+            type="range"
+            min="0"
+            max="32"
+            step="0.1"
+            value="0"
+            aria-label="Seek through current track"
+          />
+          <div class="volume-row">
+            <button type="button" id="mute-toggle" aria-label="Mute music">
+              <span aria-hidden="true" id="volume-icon">♪</span>
+            </button>
+            <input
+              type="range"
+              id="volume"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.55"
+              aria-label="Music volume"
+            />
+            <span id="volume-readout">55%</span>
+          </div>
+          <div class="track-list" aria-label="Synth playlist">
+            <p>choose a loop</p>
+            <button type="button" class="current" data-track="0" aria-pressed="true">
+              <span>01</span>
+              <b>plastic moon</b>
+              <small>0:32</small>
+            </button>
+            <button type="button" data-track="1" aria-pressed="false">
+              <span>02</span>
+              <b>memory card lullaby</b>
+              <small>0:32</small>
+            </button>
+            <button type="button" data-track="2" aria-pressed="false">
+              <span>03</span>
+              <b>dial-up daydream</b>
+              <small>0:32</small>
+            </button>
+            <small class="local-audio-note">original audio synthesized locally</small>
+          </div>
+        </div>
+      </aside>
     </div>
 
     <script src="./script.js"></script>
+    <script src="./js/music.js"></script>
     <script src="./js/links.js"></script>
   </body>
 </html>

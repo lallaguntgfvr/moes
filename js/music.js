@@ -33,14 +33,14 @@
     }
   ];
 
-  var playButton = document.getElementById("play-toggle");
-  if (!playButton) return;
+  var widget = document.getElementById("music-widget");
+  if (!widget) return;
 
+  var playButton = document.getElementById("play-toggle");
   var discWrap = document.getElementById("disc-wrap");
   var discNumber = document.getElementById("disc-number");
   var label = document.getElementById("player-label");
   var title = document.getElementById("track-title");
-  var subtitle = document.getElementById("track-subtitle");
   var playIcon = document.getElementById("play-icon");
   var previousButton = document.getElementById("previous-track");
   var nextButton = document.getElementById("next-track");
@@ -51,20 +51,45 @@
   var volumeSlider = document.getElementById("volume");
   var volumeReadout = document.getElementById("volume-readout");
   var errorLabel = document.getElementById("player-error");
+  var expandButton = document.getElementById("music-widget-expand");
+  var expandIcon = document.getElementById("music-widget-expand-icon");
+  var details = document.getElementById("music-widget-details");
   var trackButtons = Array.prototype.slice.call(
-    document.querySelectorAll(".track-list button[data-track]")
+    widget.querySelectorAll(".track-list button[data-track]")
   );
 
-  var trackIndex = 0;
+  var trackIndex = readTrack();
   var isPlaying = false;
-  var position = 0;
+  var position = readPosition(trackIndex);
   var volume = readVolume();
+  var isExpanded = readExpanded();
   var context = null;
   var gain = null;
   var source = null;
   var anchor = 0;
   var ticker = 0;
   var buffers = {};
+
+  function readTrack() {
+    try {
+      var saved = Number(localStorage.getItem("secret-room-track"));
+      return isFinite(saved) && saved >= 0 && saved < tracks.length
+        ? Math.floor(saved)
+        : 0;
+    } catch (error) {
+      return 0;
+    }
+  }
+
+  function readPosition(index) {
+    try {
+      var saved = Number(localStorage.getItem("secret-room-position"));
+      if (!isFinite(saved) || saved < 0) return 0;
+      return saved % tracks[index].duration;
+    } catch (error) {
+      return 0;
+    }
+  }
 
   function readVolume() {
     try {
@@ -77,12 +102,25 @@
     }
   }
 
-  function storeVolume() {
+  function readExpanded() {
     try {
-      localStorage.setItem("secret-room-volume", String(volume));
+      return localStorage.getItem("secret-room-player-expanded") === "yes";
     } catch (error) {
-      /* the volume still works for this visit */
+      return false;
     }
+  }
+
+  function store(key, value) {
+    try {
+      localStorage.setItem(key, String(value));
+    } catch (error) {
+      /* the radio still works for this visit if storage is unavailable */
+    }
+  }
+
+  function savePlaybackState() {
+    store("secret-room-track", trackIndex);
+    store("secret-room-position", position);
   }
 
   function formatTime(value) {
@@ -122,6 +160,12 @@
     return buffer;
   }
 
+  function updatePosition() {
+    if (isPlaying && context) {
+      position = (context.currentTime - anchor) % tracks[trackIndex].duration;
+    }
+  }
+
   function stopSource() {
     window.clearInterval(ticker);
     if (source) {
@@ -147,29 +191,40 @@
 
     anchor = context.currentTime - position;
     ticker = window.setInterval(function () {
-      position = (context.currentTime - anchor) % track.duration;
+      updatePosition();
       renderTime();
     }, 100);
   }
 
-  function play() {
-    if (!context) {
-      var AudioContextClass = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContextClass) {
-        showError("audio does not work in this browser");
-        return;
-      }
+  function ensureContext() {
+    if (context) return true;
+
+    var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) {
+      showError("audio does not work in this browser");
+      return false;
+    }
+
+    try {
       context = new AudioContextClass();
       gain = context.createGain();
       gain.gain.value = volume;
       gain.connect(context.destination);
+      return true;
+    } catch (error) {
+      context = null;
+      gain = null;
+      showError("audio could not start in this browser");
+      return false;
     }
+  }
 
-    if (typeof context.resume === "function") context.resume();
-
-    if (!buffers[trackIndex]) buffers[trackIndex] = makeLoop(tracks[trackIndex]);
+  function play() {
+    if (!ensureContext()) return;
 
     try {
+      if (typeof context.resume === "function") context.resume();
+      if (!buffers[trackIndex]) buffers[trackIndex] = makeLoop(tracks[trackIndex]);
       startSource();
       isPlaying = true;
       showError("");
@@ -182,8 +237,10 @@
   }
 
   function pause() {
+    updatePosition();
     stopSource();
     isPlaying = false;
+    savePlaybackState();
     render();
   }
 
@@ -199,29 +256,33 @@
       timeReadout.textContent =
         formatTime(position) + " / " + formatTime(track.duration);
     }
-    if (seek) seek.value = String(Math.min(position, track.duration));
+    if (seek) {
+      seek.max = String(track.duration);
+      seek.value = String(Math.min(position, track.duration));
+    }
   }
 
   function render() {
     var track = tracks[trackIndex];
 
     if (title) title.textContent = track.title;
-    if (subtitle) subtitle.textContent = track.subtitle;
     if (discNumber) discNumber.textContent = "0" + (trackIndex + 1);
     if (label) label.textContent = "now " + (isPlaying ? "playing" : "paused");
     if (playIcon) playIcon.textContent = isPlaying ? "❚❚" : "▶";
-    playButton.setAttribute("aria-label", isPlaying ? "Pause music" : "Play music");
+    if (playButton) {
+      playButton.setAttribute("aria-label", isPlaying ? "Pause music" : "Play music");
+    }
     if (discWrap) discWrap.classList.toggle("playing", isPlaying);
-    if (seek) seek.max = String(track.duration);
 
     trackButtons.forEach(function (button, index) {
-      var current = index === trackIndex;
+      var current = Number(button.getAttribute("data-track")) === trackIndex;
       button.classList.toggle("current", current);
       button.setAttribute("aria-pressed", String(current));
     });
 
     renderTime();
     renderVolume();
+    renderExpanded();
   }
 
   function renderVolume() {
@@ -233,9 +294,21 @@
     }
   }
 
+  function renderExpanded() {
+    if (details) details.hidden = !isExpanded;
+    if (expandButton) {
+      expandButton.setAttribute("aria-expanded", String(isExpanded));
+      expandButton.setAttribute(
+        "aria-label",
+        isExpanded ? "Hide player controls" : "Show more player controls"
+      );
+    }
+    if (expandIcon) expandIcon.textContent = isExpanded ? "−" : "＋";
+  }
+
   function setVolume(next) {
     volume = Math.max(0, Math.min(1, next));
-    storeVolume();
+    store("secret-room-volume", volume);
     if (gain && context) {
       gain.gain.setTargetAtTime(volume, context.currentTime, 0.02);
     }
@@ -245,19 +318,31 @@
   function selectTrack(index) {
     var next = (index + tracks.length) % tracks.length;
     var wasPlaying = isPlaying;
+    updatePosition();
     position = 0;
     trackIndex = next;
+    savePlaybackState();
+
     if (wasPlaying) {
-      if (buffers[trackIndex] === undefined) buffers[trackIndex] = makeLoop(tracks[trackIndex]);
-      startSource();
+      try {
+        if (!buffers[trackIndex]) buffers[trackIndex] = makeLoop(tracks[trackIndex]);
+        startSource();
+      } catch (error) {
+        showError("audio could not start in this browser");
+        isPlaying = false;
+        stopSource();
+      }
     }
+
     render();
   }
 
-  playButton.addEventListener("click", function () {
-    if (isPlaying) pause();
-    else play();
-  });
+  if (playButton) {
+    playButton.addEventListener("click", function () {
+      if (isPlaying) pause();
+      else play();
+    });
+  }
 
   if (previousButton) {
     previousButton.addEventListener("click", function () {
@@ -277,10 +362,19 @@
     });
   });
 
+  if (expandButton) {
+    expandButton.addEventListener("click", function () {
+      isExpanded = !isExpanded;
+      store("secret-room-player-expanded", isExpanded ? "yes" : "no");
+      renderExpanded();
+    });
+  }
+
   if (seek) {
     seek.addEventListener("input", function () {
       position = Number(seek.value);
       if (isPlaying) startSource();
+      savePlaybackState();
       renderTime();
     });
   }
@@ -298,8 +392,17 @@
   }
 
   window.addEventListener("pagehide", function () {
+    updatePosition();
+    savePlaybackState();
     stopSource();
-    if (context) context.close();
+    isPlaying = false;
+    if (context) {
+      context.close();
+      context = null;
+      gain = null;
+      buffers = {};
+    }
+    render();
   });
 
   render();
