@@ -20,7 +20,7 @@ Plus:
 ```text
 style.css      all of the styling
 script.js      the menu, clock, visit counter, and display settings
-js/music.js    the little Web Audio radio
+js/music.js    the sitewide floating Web Audio radio
 js/shrine.js   genre filters and the surprise pick
 js/gallery.js  the image viewer
 js/guestbook.js
@@ -38,9 +38,9 @@ If you already had an older version uploaded, remove the old `assets` folder and
 
 ## How it works (for editing later)
 
-- **Sidebar / footer / pagination** are copied into each `.html` file, the classic Neocities way. If you add a page, add it to each sidebar and to the previous/next links.
-- **Display settings** (CRT glass, motion) and the volume are remembered with `localStorage`.
-- **Music** is synthesized in the browser with the Web Audio API. It never autoplays and stops when you leave the page.
+- **Sidebar, footer, and the compact player widget** are copied into each `.html` file, the classic Neocities way. If you add a page, add it to each sidebar and include the widget markup plus its shared script.
+- **Display settings** (CRT glass, motion), the selected track and position, and volume are remembered with `localStorage`.
+- **Music** is synthesized in the browser with the Web Audio API. Its compact player stays pinned to the bottom-right corner on every page. It never autoplays; because each room is a separate HTML page, playback pauses when you navigate and resumes when you press play again.
 - **The guestbook is local to each visitor's browser**, not shared. A shared guestbook needs an external service; none has been added.
 - **Browser visits** are a local counter, not analytics.
 - No cookies, no tracking, no server.
