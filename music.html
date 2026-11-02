@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1b171f" />
+    <meta name="description" content="Three original loops for your late-night wandering. Press play if you like." />
+    <link
+      rel="icon"
+      href="https://kyuunkurarin.neocities.org/cf6e00d9f3b24617c52cab86e2ef470a9c4790e2.ico"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>midnight fm · moe moe kyun~</title>
+  </head>
+  <body>
+    <div class="site" id="site">
+      <a class="skip-link" href="#main-content">skip to content</a>
+
+      <div class="crt-overlay" id="crt-overlay" aria-hidden="true"></div>
+      <div class="ambient ambient-one" aria-hidden="true"></div>
+      <div class="ambient ambient-two" aria-hidden="true"></div>
+
+      <div class="mobile-bar" id="mobile-bar">
+        <button
+          type="button"
+          id="menu-open"
+          aria-label="Open site menu"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg> menu
+        </button>
+        <a href="./index.html">moe moe kyun~</a>
+        <span aria-hidden="true">☾</span>
+      </div>
+
+      <button
+        type="button"
+        class="sidebar-backdrop"
+        id="sidebar-backdrop"
+        aria-label="Close site menu"
+        tabindex="-1"
+        hidden
+      ></button>
+
+      <aside id="site-menu" class="sidebar" aria-label="Site menu">
+        <div class="sidebar-brand-row">
+          <a class="sidebar-brand" href="./index.html">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5Z"/></svg>
+            <span>
+              moe moe
+              <br />kyun~
+            </span>
+          </a>
+          <button type="button" class="sidebar-close" id="menu-close" aria-label="Close site menu">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <p class="sidebar-url">after_dark / music.html</p>
+        <div class="lace-divider" aria-hidden="true">
+          · ⊹ · ⊹ · ⊹ ·
+        </div>
+
+        <nav aria-label="Site directory">
+          <p class="side-label">site directory</p>
+          <ul class="main-nav">
+            <li>
+              <a href="./index.html" title="return to the entrance">
+                <span class="nav-index" aria-hidden="true">01</span>
+                /home
+              </a>
+            </li>
+            <li>
+              <a href="./about.html" title="a little about this room">
+                <span class="nav-index" aria-hidden="true">02</span>
+                /about
+              </a>
+            </li>
+            <li>
+              <a href="./journal.html" title="site notes &amp; updates">
+                <span class="nav-index" aria-hidden="true">03</span>
+                /changelog
+              </a>
+            </li>
+            <li>
+              <a href="./music.html" title="a little browser-synth radio" class="active" aria-current="page">
+                <span class="nav-index" aria-hidden="true">04</span>
+                /midnight-fm
+              </a>
+            </li>
+            <li>
+              <a href="./shrine.html" title="games worth getting lost in">
+                <span class="nav-index" aria-hidden="true">05</span>
+                /media-shrine
+              </a>
+            </li>
+            <li>
+              <a href="./gallery.html" title="saved images &amp; fragments">
+                <span class="nav-index" aria-hidden="true">06</span>
+                /scrapbook
+              </a>
+            </li>
+            <li>
+              <a href="./guestbook.html" title="leave a tiny letter">
+                <span class="nav-index" aria-hidden="true">07</span>
+                /guestbook
+              </a>
+            </li>
+            <li>
+              <a href="./links.html" title="other handmade websites">
+                <span class="nav-index" aria-hidden="true">08</span>
+                /neighbors
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="side-status">
+          <p>
+            <span class="status-light" aria-hidden="true"></span> online,
+            probably
+          </p>
+          <dl>
+            <div>
+              <dt>local time</dt>
+              <dd id="local-time">--:--</dd>
+            </div>
+            <div>
+              <dt>browser visits</dt>
+              <dd id="visit-count">001</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="side-settings">
+          <p class="side-label">display settings</p>
+          <button type="button" id="crt-toggle" aria-pressed="true">
+            <span aria-hidden="true">▤</span> crt glass <span>on</span>
+          </button>
+          <button type="button" id="motion-toggle" aria-pressed="true">
+            <span aria-hidden="true">✦</span> motion <span>on</span>
+          </button>
+        </div>
+        <p class="sidebar-footnote">
+          best viewed with
+          <br />a little insomnia
+        </p>
+      </aside>
+
+      <div class="page-wrap" id="page-wrap">
+        <main id="main-content" class="main-column page-music" tabindex="-1">
+          <header class="page-heading">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="./index.html">secret room</a>
+              <span aria-hidden="true">/</span>
+              <span aria-current="page">music</span>
+            </nav>
+            <h1>midnight fm</h1>
+            <p>Three original loops for your late-night wandering. Press play if you like.</p>
+          </header>
+
+          <section class="window music-window">
+            <div class="window-title">
+              <span>/now-playing.exe</span>
+              <span class="window-lights" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </span>
+            </div>
+            <div class="window-body">
+              <div class="player-layout">
+                <div class="disc-wrap" id="disc-wrap" aria-hidden="true">
+                  <div class="disc">
+                    <span id="disc-number">01</span>
+                  </div>
+                  <span aria-hidden="true">♫</span>
+                </div>
+                <div class="player-main">
+                  <p class="player-label" id="player-label">now paused</p>
+                  <h2 id="track-title">plastic moon</h2>
+                  <p class="track-subtitle" id="track-subtitle">
+                    original loop 001 / browser synth
+                  </p>
+                  <div class="player-controls">
+                    <button
+                      type="button"
+                      id="previous-track"
+                      aria-label="Previous track"
+                      title="Previous track"
+                    >
+                      <span aria-hidden="true">◀◀</span>
+                    </button>
+                    <button
+                      type="button"
+                      class="play-button"
+                      id="play-toggle"
+                      aria-label="Play music"
+                    >
+                      <span aria-hidden="true" id="play-icon">▶</span>
+                    </button>
+                    <button
+                      type="button"
+                      id="next-track"
+                      aria-label="Next track"
+                      title="Next track"
+                    >
+                      <span aria-hidden="true">▶▶</span>
+                    </button>
+                    <span class="time-readout" id="time-readout">
+                      0:00 / 0:32
+                    </span>
+                  </div>
+                  <input
+                    class="seek-slider"
+                    id="seek"
+                    type="range"
+                    min="0"
+                    max="32"
+                    step="0.1"
+                    value="0"
+                    aria-label="Seek through current track"
+                  />
+                  <div class="volume-row">
+                    <button
+                      type="button"
+                      id="mute-toggle"
+                      aria-label="Mute music"
+                    >
+                      <span aria-hidden="true" id="volume-icon">♪</span>
+                    </button>
+                    <input
+                      type="range"
+                      id="volume"
+                      min="0"
+                      max="1"
+                      step="0.01"
+                      value="0.55"
+                      aria-label="Music volume"
+                    />
+                    <span id="volume-readout">55%</span>
+                  </div>
+                  <p class="player-error" id="player-error" hidden></p>
+                </div>
+                <div class="track-list" aria-label="Synth playlist">
+                  <p>midnight fm</p>
+                  <button type="button" class="current" data-track="0" aria-pressed="true">
+                    <span>01</span>
+                    <b>plastic moon</b>
+                    <small>0:32</small>
+                  </button>
+                  <button type="button" data-track="1" aria-pressed="false">
+                    <span>02</span>
+                    <b>memory card lullaby</b>
+                    <small>0:32</small>
+                  </button>
+                  <button type="button" data-track="2" aria-pressed="false">
+                    <span>03</span>
+                    <b>dial-up daydream</b>
+                    <small>0:32</small>
+                  </button>
+                  <small class="local-audio-note">
+                    original audio synthesized locally
+                  </small>
+                </div>
+              </div>
+              <p class="music-page-note">
+                a little company for your stay. nothing plays until you press
+                play, and the radio stops when you visit another page. your
+                volume preference comes with you.
+              </p>
+            </div>
+          </section>
+
+        <nav class="page-pagination" aria-label="More rooms">
+          <a href="./journal.html" rel="prev">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            <span>
+              <small>previous room</small>
+              <b>/changelog</b>
+            </span>
+          </a>
+          <a href="./shrine.html" rel="next">
+            <span>
+              <small>next room</small>
+              <b>/media-shrine</b>
+            </span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </nav>
+
+          <footer class="site-footer">
+            <div class="footer-ornament" aria-hidden="true">
+              ‧₊˚✧ ⊹ ˚ . ✧˚₊‧
+            </div>
+            <p>
+              a dark-moe personal homepage study · original interface, borrowed
+              pixels credited in neighbors.
+            </p>
+            <p>
+              no cookies · no analytics · your letters never leave your browser
+            </p>
+            <nav aria-label="Footer navigation">
+              <a href="./about.html">about</a>
+              <a href="./guestbook.html">guestbook</a>
+              <a href="./links.html">credits</a>
+              <a href="#main-content" id="back-to-top">back to top <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+            </nav>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./js/music.js"></script>
+  </body>
+</html>

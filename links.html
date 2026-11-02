@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1b171f" />
+    <meta name="description" content="More little doors to the handmade web, and the pixels that inspired this room." />
+    <link
+      rel="icon"
+      href="https://kyuunkurarin.neocities.org/cf6e00d9f3b24617c52cab86e2ef470a9c4790e2.ico"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>around the neighborhood · moe moe kyun~</title>
+  </head>
+  <body>
+    <div class="site" id="site">
+      <a class="skip-link" href="#main-content">skip to content</a>
+
+      <div class="crt-overlay" id="crt-overlay" aria-hidden="true"></div>
+      <div class="ambient ambient-one" aria-hidden="true"></div>
+      <div class="ambient ambient-two" aria-hidden="true"></div>
+
+      <div class="mobile-bar" id="mobile-bar">
+        <button
+          type="button"
+          id="menu-open"
+          aria-label="Open site menu"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg> menu
+        </button>
+        <a href="./index.html">moe moe kyun~</a>
+        <span aria-hidden="true">☾</span>
+      </div>
+
+      <button
+        type="button"
+        class="sidebar-backdrop"
+        id="sidebar-backdrop"
+        aria-label="Close site menu"
+        tabindex="-1"
+        hidden
+      ></button>
+
+      <aside id="site-menu" class="sidebar" aria-label="Site menu">
+        <div class="sidebar-brand-row">
+          <a class="sidebar-brand" href="./index.html">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5Z"/></svg>
+            <span>
+              moe moe
+              <br />kyun~
+            </span>
+          </a>
+          <button type="button" class="sidebar-close" id="menu-close" aria-label="Close site menu">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <p class="sidebar-url">after_dark / links.html</p>
+        <div class="lace-divider" aria-hidden="true">
+          · ⊹ · ⊹ · ⊹ ·
+        </div>
+
+        <nav aria-label="Site directory">
+          <p class="side-label">site directory</p>
+          <ul class="main-nav">
+            <li>
+              <a href="./index.html" title="return to the entrance">
+                <span class="nav-index" aria-hidden="true">01</span>
+                /home
+              </a>
+            </li>
+            <li>
+              <a href="./about.html" title="a little about this room">
+                <span class="nav-index" aria-hidden="true">02</span>
+                /about
+              </a>
+            </li>
+            <li>
+              <a href="./journal.html" title="site notes &amp; updates">
+                <span class="nav-index" aria-hidden="true">03</span>
+                /changelog
+              </a>
+            </li>
+            <li>
+              <a href="./music.html" title="a little browser-synth radio">
+                <span class="nav-index" aria-hidden="true">04</span>
+                /midnight-fm
+              </a>
+            </li>
+            <li>
+              <a href="./shrine.html" title="games worth getting lost in">
+                <span class="nav-index" aria-hidden="true">05</span>
+                /media-shrine
+              </a>
+            </li>
+            <li>
+              <a href="./gallery.html" title="saved images &amp; fragments">
+                <span class="nav-index" aria-hidden="true">06</span>
+                /scrapbook
+              </a>
+            </li>
+            <li>
+              <a href="./guestbook.html" title="leave a tiny letter">
+                <span class="nav-index" aria-hidden="true">07</span>
+                /guestbook
+              </a>
+            </li>
+            <li>
+              <a href="./links.html" title="other handmade websites" class="active" aria-current="page">
+                <span class="nav-index" aria-hidden="true">08</span>
+                /neighbors
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="side-status">
+          <p>
+            <span class="status-light" aria-hidden="true"></span> online,
+            probably
+          </p>
+          <dl>
+            <div>
+              <dt>local time</dt>
+              <dd id="local-time">--:--</dd>
+            </div>
+            <div>
+              <dt>browser visits</dt>
+              <dd id="visit-count">001</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="side-settings">
+          <p class="side-label">display settings</p>
+          <button type="button" id="crt-toggle" aria-pressed="true">
+            <span aria-hidden="true">▤</span> crt glass <span>on</span>
+          </button>
+          <button type="button" id="motion-toggle" aria-pressed="true">
+            <span aria-hidden="true">✦</span> motion <span>on</span>
+          </button>
+        </div>
+        <p class="sidebar-footnote">
+          best viewed with
+          <br />a little insomnia
+        </p>
+      </aside>
+
+      <div class="page-wrap" id="page-wrap">
+        <main id="main-content" class="main-column page-links" tabindex="-1">
+          <header class="page-heading">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="./index.html">secret room</a>
+              <span aria-hidden="true">/</span>
+              <span aria-current="page">links</span>
+            </nav>
+            <h1>around the neighborhood</h1>
+            <p>More little doors to the handmade web, and the pixels that inspired this room.</p>
+          </header>
+
+          <section class="window links-window">
+            <div class="window-title">
+              <span>/neighbors/button_wall.html</span>
+              <span class="window-lights" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </span>
+            </div>
+            <div class="window-body">
+              <div class="section-heading">
+                <div>
+                  <span>the web is better with doors</span>
+                  <h2>neighbors &amp; inspirations</h2>
+                </div>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <p class="section-description">
+                real buttons, real handmade sites. hover to pause the parade;
+                every door opens in a new tab.
+              </p>
+              <div class="button-marquee">
+                <div class="button-marquee-track">
+                  <div class="button-group">
+                  <a href="https://var1ac4t.neocities.org/" target="_blank" rel="noreferrer" title="var1ac4t">
+                    <img
+                      class="pixel"
+                      src="https://var1ac4t.neocities.org/button.gif"
+                      alt="var1ac4t website button"
+                    />
+                  </a>
+                  <a href="https://demisdesignart.neocities.org/" target="_blank" rel="noreferrer" title="demisdesignart">
+                    <img
+                      class="pixel"
+                      src="https://demisdesignart.neocities.org/demisbutton.png"
+                      alt="demisdesignart website button"
+                    />
+                  </a>
+                  <a href="https://nukochannel.neocities.org/" target="_blank" rel="noreferrer" title="nukochannel">
+                    <img
+                      class="pixel"
+                      src="https://nukochannel.neocities.org/NukoChannelButton.gif"
+                      alt="nukochannel website button"
+                    />
+                  </a>
+                  <a href="https://moekkis.neocities.org/" target="_blank" rel="noreferrer" title="moekkis">
+                    <img
+                      class="pixel"
+                      src="https://moekkis.neocities.org/moebutton.png"
+                      alt="moekkis website button"
+                    />
+                  </a>
+                  <a href="https://diflurry.neocities.org/" target="_blank" rel="noreferrer" title="diflurry">
+                    <img
+                      class="pixel"
+                      src="https://diflurry.neocities.org/button1.gif"
+                      alt="diflurry website button"
+                    />
+                  </a>
+                  <a href="https://drizzle.neocities.org/" target="_blank" rel="noreferrer" title="drizzle">
+                    <img
+                      class="pixel"
+                      src="https://drizzle.neocities.org/button.gif"
+                      alt="drizzle website button"
+                    />
+                  </a>
+                  <a href="https://vrelle.neocities.org/" target="_blank" rel="noreferrer" title="vrelle">
+                    <img
+                      class="pixel"
+                      src="https://vrelle.neocities.org/indximages/btn.png"
+                      alt="vrelle website button"
+                    />
+                  </a>
+                  <a href="https://hihijihi.neocities.org/" target="_blank" rel="noreferrer" title="hihijihi">
+                    <img
+                      class="pixel"
+                      src="https://hihijihi.neocities.org/webbutton01.png"
+                      alt="hihijihi website button"
+                    />
+                  </a>
+                  <a href="https://noctcaelum.neocities.org/" target="_blank" rel="noreferrer" title="noctcaelum">
+                    <img
+                      class="pixel"
+                      src="https://cdn.imgchest.com/files/0faf3d12a619.png"
+                      alt="noctcaelum website button"
+                    />
+                  </a>
+                  <a href="https://kanandraw.neocities.org/" target="_blank" rel="noreferrer" title="kanandraw">
+                    <img
+                      class="pixel"
+                      src="https://kanandraw.neocities.org/stampimg/kananbutton.gif"
+                      alt="kanandraw website button"
+                    />
+                  </a>
+                  <a href="https://pankesito.neocities.org/" target="_blank" rel="noreferrer" title="pankesito">
+                    <img
+                      class="pixel"
+                      src="https://pankesito.neocities.org/button.png"
+                      alt="pankesito website button"
+                    />
+                  </a>
+                  <a href="https://meowmeow-cafe.neocities.org/" target="_blank" rel="noreferrer" title="meowmeow cafe">
+                    <img
+                      class="pixel"
+                      src="https://meowmeow-cafe.neocities.org/layout/images/meowbutton2.gif"
+                      alt="meowmeow cafe website button"
+                    />
+                  </a>
+                  </div>
+                  <div class="button-group" aria-hidden="true">
+                  <span>
+                    <img class="pixel" src="https://var1ac4t.neocities.org/button.gif" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://demisdesignart.neocities.org/demisbutton.png" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://nukochannel.neocities.org/NukoChannelButton.gif" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://moekkis.neocities.org/moebutton.png" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://diflurry.neocities.org/button1.gif" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://drizzle.neocities.org/button.gif" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://vrelle.neocities.org/indximages/btn.png" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://hihijihi.neocities.org/webbutton01.png" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://cdn.imgchest.com/files/0faf3d12a619.png" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://kanandraw.neocities.org/stampimg/kananbutton.gif" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://pankesito.neocities.org/button.png" alt="" />
+                  </span>
+                  <span>
+                    <img class="pixel" src="https://meowmeow-cafe.neocities.org/layout/images/meowbutton2.gif" alt="" />
+                  </span>
+                  </div>
+                </div>
+              </div>
+              <div class="inspiration-links">
+                <a href="https://var1ac4t.neocities.org/" target="_blank" rel="noreferrer">
+                  var1ac4t's palace ↗
+                </a>
+                <a href="https://kyuunkurarin.neocities.org/" target="_blank" rel="noreferrer">
+                  kyuunkurarin ↗
+                </a>
+                <a href="https://sword-of-moonlight.moe/" target="_blank" rel="noreferrer">
+                  sword of moonlight ↗
+                </a>
+              </div>
+              <div class="copy-link-row">
+                <p>want to remember this room?</p>
+                <button type="button" class="text-button" id="copy-link">
+                  <span aria-hidden="true">⧉</span> copy this page link
+                </button>
+              </div>
+            </div>
+          </section>
+
+        <nav class="page-pagination" aria-label="More rooms">
+          <a href="./guestbook.html" rel="prev">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            <span>
+              <small>previous room</small>
+              <b>/guestbook</b>
+            </span>
+          </a>
+          <a href="./index.html" rel="next">
+            <span>
+              <small>back to the entrance</small>
+              <b>/home</b>
+            </span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </nav>
+
+          <footer class="site-footer">
+            <div class="footer-ornament" aria-hidden="true">
+              ‧₊˚✧ ⊹ ˚ . ✧˚₊‧
+            </div>
+            <p>
+              a dark-moe personal homepage study · original interface, borrowed
+              pixels credited in neighbors.
+            </p>
+            <p>
+              no cookies · no analytics · your letters never leave your browser
+            </p>
+            <nav aria-label="Footer navigation">
+              <a href="./about.html">about</a>
+              <a href="./guestbook.html">guestbook</a>
+              <a href="./links.html">credits</a>
+              <a href="#main-content" id="back-to-top">back to top <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+            </nav>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./js/links.js"></script>
+  </body>
+</html>

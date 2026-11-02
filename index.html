@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1b171f" />
+    <meta name="description" content="A handmade corner of the web. Pick a door and stay a little while." />
+    <link
+      rel="icon"
+      href="https://kyuunkurarin.neocities.org/cf6e00d9f3b24617c52cab86e2ef470a9c4790e2.ico"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>moe moe kyun~ after dark</title>
+  </head>
+  <body>
+    <div class="site" id="site">
+      <a class="skip-link" href="#main-content">skip to content</a>
+
+      <div class="crt-overlay" id="crt-overlay" aria-hidden="true"></div>
+      <div class="ambient ambient-one" aria-hidden="true"></div>
+      <div class="ambient ambient-two" aria-hidden="true"></div>
+
+      <div class="mobile-bar" id="mobile-bar">
+        <button
+          type="button"
+          id="menu-open"
+          aria-label="Open site menu"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg> menu
+        </button>
+        <a href="./index.html">moe moe kyun~</a>
+        <span aria-hidden="true">☾</span>
+      </div>
+
+      <button
+        type="button"
+        class="sidebar-backdrop"
+        id="sidebar-backdrop"
+        aria-label="Close site menu"
+        tabindex="-1"
+        hidden
+      ></button>
+
+      <aside id="site-menu" class="sidebar" aria-label="Site menu">
+        <div class="sidebar-brand-row">
+          <a class="sidebar-brand" href="./index.html">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5Z"/></svg>
+            <span>
+              moe moe
+              <br />kyun~
+            </span>
+          </a>
+          <button type="button" class="sidebar-close" id="menu-close" aria-label="Close site menu">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <p class="sidebar-url">after_dark / index.html</p>
+        <div class="lace-divider" aria-hidden="true">
+          · ⊹ · ⊹ · ⊹ ·
+        </div>
+
+        <nav aria-label="Site directory">
+          <p class="side-label">site directory</p>
+          <ul class="main-nav">
+            <li>
+              <a href="./index.html" title="return to the entrance" class="active" aria-current="page">
+                <span class="nav-index" aria-hidden="true">01</span>
+                /home
+              </a>
+            </li>
+            <li>
+              <a href="./about.html" title="a little about this room">
+                <span class="nav-index" aria-hidden="true">02</span>
+                /about
+              </a>
+            </li>
+            <li>
+              <a href="./journal.html" title="site notes &amp; updates">
+                <span class="nav-index" aria-hidden="true">03</span>
+                /changelog
+              </a>
+            </li>
+            <li>
+              <a href="./music.html" title="a little browser-synth radio">
+                <span class="nav-index" aria-hidden="true">04</span>
+                /midnight-fm
+              </a>
+            </li>
+            <li>
+              <a href="./shrine.html" title="games worth getting lost in">
+                <span class="nav-index" aria-hidden="true">05</span>
+                /media-shrine
+              </a>
+            </li>
+            <li>
+              <a href="./gallery.html" title="saved images &amp; fragments">
+                <span class="nav-index" aria-hidden="true">06</span>
+                /scrapbook
+              </a>
+            </li>
+            <li>
+              <a href="./guestbook.html" title="leave a tiny letter">
+                <span class="nav-index" aria-hidden="true">07</span>
+                /guestbook
+              </a>
+            </li>
+            <li>
+              <a href="./links.html" title="other handmade websites">
+                <span class="nav-index" aria-hidden="true">08</span>
+                /neighbors
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="side-status">
+          <p>
+            <span class="status-light" aria-hidden="true"></span> online,
+            probably
+          </p>
+          <dl>
+            <div>
+              <dt>local time</dt>
+              <dd id="local-time">--:--</dd>
+            </div>
+            <div>
+              <dt>browser visits</dt>
+              <dd id="visit-count">001</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="side-settings">
+          <p class="side-label">display settings</p>
+          <button type="button" id="crt-toggle" aria-pressed="true">
+            <span aria-hidden="true">▤</span> crt glass <span>on</span>
+          </button>
+          <button type="button" id="motion-toggle" aria-pressed="true">
+            <span aria-hidden="true">✦</span> motion <span>on</span>
+          </button>
+        </div>
+        <p class="sidebar-footnote">
+          best viewed with
+          <br />a little insomnia
+        </p>
+      </aside>
+
+      <div class="page-wrap" id="page-wrap">
+        <main id="main-content" class="main-column page-home" tabindex="-1">
+          <header class="hero">
+            <div class="hero-file">C:\users\kurarin\secret_room\index.html</div>
+            <img
+              class="hero-sparkle pixel"
+              src="https://kyuunkurarin.neocities.org/sparkluluuuu.gif"
+              alt=""
+            />
+            <div class="hero-copy">
+              <p>moe moe kyun~ after dark</p>
+              <h1>girl's secret room</h1>
+              <span>少女の秘密の部屋</span>
+            </div>
+            <div class="hero-quote">
+              <span>&quot;i am my own parabolic antenna&quot;</span>
+              <span class="quote-secret">
+                you found the door. please come in.
+              </span>
+            </div>
+          </header>
+
+          <div class="ticker" aria-label="Welcome message">
+            <div class="ticker-track">
+              <span>
+                おかえりなさい! welcome home · this site is held together by
+                messy code and scotch tape · please look around · no autoplay ·
+                take your time ·&nbsp;
+              </span>
+              <span aria-hidden="true">
+                おかえりなさい! welcome home · this site is held together by
+                messy code and scotch tape · please look around · no autoplay ·
+                take your time ·&nbsp;
+              </span>
+            </div>
+          </div>
+
+          <section class="window home-window">
+            <div class="window-title">
+              <span>/start_here.txt</span>
+              <span class="window-lights" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </span>
+            </div>
+            <div class="window-body">
+              <div class="section-kicker">
+                <span aria-hidden="true">✧</span> you found the door
+              </div>
+              <div class="section-heading">
+                <div>
+                  <span>おかえりなさい · welcome home</span>
+                  <h2>pick a little door</h2>
+                </div>
+                <span aria-hidden="true">▣</span>
+              </div>
+              <p class="home-welcome">
+                a tiny room for old games, saved pixels, and late-night
+                thoughts. every corner has its own page now—wander wherever you
+                like, and make yourself at home.
+              </p>
+              <nav class="home-directory" aria-label="Explore the room">
+                <a class="directory-door" href="./about.html">
+                  <span class="nav-index" aria-hidden="true">01</span>
+                  <span>
+                    <b>/about</b>
+                    <small>a little about this room</small>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a class="directory-door" href="./journal.html">
+                  <span class="nav-index" aria-hidden="true">02</span>
+                  <span>
+                    <b>/changelog</b>
+                    <small>site notes &amp; updates</small>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a class="directory-door" href="./music.html">
+                  <span class="nav-index" aria-hidden="true">03</span>
+                  <span>
+                    <b>/midnight-fm</b>
+                    <small>a little browser-synth radio</small>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a class="directory-door" href="./shrine.html">
+                  <span class="nav-index" aria-hidden="true">04</span>
+                  <span>
+                    <b>/media-shrine</b>
+                    <small>games worth getting lost in</small>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a class="directory-door" href="./gallery.html">
+                  <span class="nav-index" aria-hidden="true">05</span>
+                  <span>
+                    <b>/scrapbook</b>
+                    <small>saved images &amp; fragments</small>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a class="directory-door" href="./guestbook.html">
+                  <span class="nav-index" aria-hidden="true">06</span>
+                  <span>
+                    <b>/guestbook</b>
+                    <small>leave a tiny letter</small>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a class="directory-door" href="./links.html">
+                  <span class="nav-index" aria-hidden="true">07</span>
+                  <span>
+                    <b>/neighbors</b>
+                    <small>other handmade websites</small>
+                  </span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+              </nav>
+              <p class="home-note">
+                no autoplay · no cookies · best viewed with a little insomnia
+              </p>
+            </div>
+          </section>
+
+        <nav class="page-pagination" aria-label="More rooms">
+          <span></span>
+          <a href="./about.html" rel="next">
+            <span>
+              <small>next room</small>
+              <b>/about</b>
+            </span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </nav>
+
+          <footer class="site-footer">
+            <div class="footer-ornament" aria-hidden="true">
+              ‧₊˚✧ ⊹ ˚ . ✧˚₊‧
+            </div>
+            <p>
+              a dark-moe personal homepage study · original interface, borrowed
+              pixels credited in neighbors.
+            </p>
+            <p>
+              no cookies · no analytics · your letters never leave your browser
+            </p>
+            <nav aria-label="Footer navigation">
+              <a href="./about.html">about</a>
+              <a href="./guestbook.html">guestbook</a>
+              <a href="./links.html">credits</a>
+              <a href="#main-content" id="back-to-top">back to top <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+            </nav>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+
+  </body>
+</html>

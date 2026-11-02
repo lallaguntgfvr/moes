@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1b171f" />
+    <meta name="description" content="Strange, tender, story-heavy worlds worth keeping on the shelf." />
+    <link
+      rel="icon"
+      href="https://kyuunkurarin.neocities.org/cf6e00d9f3b24617c52cab86e2ef470a9c4790e2.ico"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>the media shrine · moe moe kyun~</title>
+  </head>
+  <body>
+    <div class="site" id="site">
+      <a class="skip-link" href="#main-content">skip to content</a>
+
+      <div class="crt-overlay" id="crt-overlay" aria-hidden="true"></div>
+      <div class="ambient ambient-one" aria-hidden="true"></div>
+      <div class="ambient ambient-two" aria-hidden="true"></div>
+
+      <div class="mobile-bar" id="mobile-bar">
+        <button
+          type="button"
+          id="menu-open"
+          aria-label="Open site menu"
+          aria-expanded="false"
+          aria-controls="site-menu"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg> menu
+        </button>
+        <a href="./index.html">moe moe kyun~</a>
+        <span aria-hidden="true">☾</span>
+      </div>
+
+      <button
+        type="button"
+        class="sidebar-backdrop"
+        id="sidebar-backdrop"
+        aria-label="Close site menu"
+        tabindex="-1"
+        hidden
+      ></button>
+
+      <aside id="site-menu" class="sidebar" aria-label="Site menu">
+        <div class="sidebar-brand-row">
+          <a class="sidebar-brand" href="./index.html">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5Z"/></svg>
+            <span>
+              moe moe
+              <br />kyun~
+            </span>
+          </a>
+          <button type="button" class="sidebar-close" id="menu-close" aria-label="Close site menu">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <p class="sidebar-url">after_dark / shrine.html</p>
+        <div class="lace-divider" aria-hidden="true">
+          · ⊹ · ⊹ · ⊹ ·
+        </div>
+
+        <nav aria-label="Site directory">
+          <p class="side-label">site directory</p>
+          <ul class="main-nav">
+            <li>
+              <a href="./index.html" title="return to the entrance">
+                <span class="nav-index" aria-hidden="true">01</span>
+                /home
+              </a>
+            </li>
+            <li>
+              <a href="./about.html" title="a little about this room">
+                <span class="nav-index" aria-hidden="true">02</span>
+                /about
+              </a>
+            </li>
+            <li>
+              <a href="./journal.html" title="site notes &amp; updates">
+                <span class="nav-index" aria-hidden="true">03</span>
+                /changelog
+              </a>
+            </li>
+            <li>
+              <a href="./music.html" title="a little browser-synth radio">
+                <span class="nav-index" aria-hidden="true">04</span>
+                /midnight-fm
+              </a>
+            </li>
+            <li>
+              <a href="./shrine.html" title="games worth getting lost in" class="active" aria-current="page">
+                <span class="nav-index" aria-hidden="true">05</span>
+                /media-shrine
+              </a>
+            </li>
+            <li>
+              <a href="./gallery.html" title="saved images &amp; fragments">
+                <span class="nav-index" aria-hidden="true">06</span>
+                /scrapbook
+              </a>
+            </li>
+            <li>
+              <a href="./guestbook.html" title="leave a tiny letter">
+                <span class="nav-index" aria-hidden="true">07</span>
+                /guestbook
+              </a>
+            </li>
+            <li>
+              <a href="./links.html" title="other handmade websites">
+                <span class="nav-index" aria-hidden="true">08</span>
+                /neighbors
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="side-status">
+          <p>
+            <span class="status-light" aria-hidden="true"></span> online,
+            probably
+          </p>
+          <dl>
+            <div>
+              <dt>local time</dt>
+              <dd id="local-time">--:--</dd>
+            </div>
+            <div>
+              <dt>browser visits</dt>
+              <dd id="visit-count">001</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="side-settings">
+          <p class="side-label">display settings</p>
+          <button type="button" id="crt-toggle" aria-pressed="true">
+            <span aria-hidden="true">▤</span> crt glass <span>on</span>
+          </button>
+          <button type="button" id="motion-toggle" aria-pressed="true">
+            <span aria-hidden="true">✦</span> motion <span>on</span>
+          </button>
+        </div>
+        <p class="sidebar-footnote">
+          best viewed with
+          <br />a little insomnia
+        </p>
+      </aside>
+
+      <div class="page-wrap" id="page-wrap">
+        <main id="main-content" class="main-column page-shrine" tabindex="-1">
+          <header class="page-heading">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="./index.html">secret room</a>
+              <span aria-hidden="true">/</span>
+              <span aria-current="page">shrine</span>
+            </nav>
+            <h1>the media shrine</h1>
+            <p>Strange, tender, story-heavy worlds worth keeping on the shelf.</p>
+          </header>
+
+          <section class="window shrine-window">
+            <div class="window-title">
+              <span>/media-shrine/favorites.html</span>
+              <span class="window-lights" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </span>
+            </div>
+            <div class="window-body">
+              <div class="section-heading shrine-heading">
+                <div>
+                  <span>things i keep thinking about</span>
+                  <h2>midnight media shrine</h2>
+                </div>
+                <button type="button" class="bevel-button" id="surprise-me">
+                  <span aria-hidden="true">✦</span> surprise me
+                </button>
+              </div>
+              <p class="section-description">
+                a hand-picked shelf of strange, tender, story-heavy worlds.
+                covers and catalogue notes are preserved from the original
+                shrine.
+              </p>
+              <div
+                class="filter-row"
+                id="filter-row"
+                aria-label="Filter recommendations by genre"
+              >
+                  <button type="button" data-filter="all" class="active" aria-pressed="true">
+                    all
+                  </button>
+                  <button type="button" data-filter="jrpg" aria-pressed="false">
+                    jrpg
+                  </button>
+                  <button type="button" data-filter="visual novel" aria-pressed="false">
+                    visual novel
+                  </button>
+                  <button type="button" data-filter="dungeon crawler" aria-pressed="false">
+                    dungeon crawler
+                  </button>
+                  <button type="button" data-filter="horror" aria-pressed="false">
+                    horror
+                  </button>
+                <span id="filter-count">12 found</span>
+              </div>
+              <div class="recommendation-grid" id="recommendation-grid">
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-0"
+                    data-genres="jrpg|sci-fi"
+                    data-title="xenosaga episode I: der wille zur macht"
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/xeno.jpg"
+                        alt="xenosaga episode I: der wille zur macht cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>xenosaga episode I: der wille zur macht <small>(2002)</small></h3>
+                      <p>turn-based science fiction, mecha, and an enormous story best entered slowly.</p>
+                      <ul aria-label="Genres">
+                        <li>jrpg</li>
+                        <li>sci-fi</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-1"
+                    data-genres="jrpg|sci-fi"
+                    data-title="xenogears"
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/xenogears.jpg"
+                        alt="xenogears cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>xenogears <small>(1998)</small></h3>
+                      <p>a story-heavy mecha jrpg with the strange gravity of a half-remembered dream.</p>
+                      <ul aria-label="Genres">
+                        <li>jrpg</li>
+                        <li>sci-fi</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-2"
+                    data-genres="dungeon crawler|dark fantasy"
+                    data-title="lunacid"
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/lunacid.jpg"
+                        alt="lunacid cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>lunacid <small>(2023)</small></h3>
+                      <p>indie dark-fantasy dungeon crawling; get lost, make a map, descend again.</p>
+                      <ul aria-label="Genres">
+                        <li>dungeon crawler</li>
+                        <li>dark fantasy</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-3"
+                    data-genres="dungeon crawler|dark fantasy|horror"
+                    data-title="shadow tower: abyss"
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/shadowtower.jpg"
+                        alt="shadow tower: abyss cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>shadow tower: abyss <small>(2003)</small></h3>
+                      <p>an oppressive first-person crawl through ruins, strange creatures, and deeper dark.</p>
+                      <ul aria-label="Genres">
+                        <li>dungeon crawler</li>
+                        <li>dark fantasy</li>
+                        <li>horror</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-4"
+                    data-genres="jrpg|digital"
+                    data-title=".hack//infection"
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/hack.jpg"
+                        alt=".hack//infection cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>.hack//infection <small>(2002)</small></h3>
+                      <p>a digital mystery wrapped inside a simulated online jrpg. check your messages.</p>
+                      <ul aria-label="Genres">
+                        <li>jrpg</li>
+                        <li>digital</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-5"
+                    data-genres="jrpg|story-heavy"
+                    data-title="nier replicant ver.1.22474487139..."
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/nier.jpg"
+                        alt="nier replicant ver.1.22474487139... cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>nier replicant ver.1.22474487139... <small>(2021)</small></h3>
+                      <p>melancholic action, impossible kindness, and a soundtrack that follows you home.</p>
+                      <ul aria-label="Genres">
+                        <li>jrpg</li>
+                        <li>story-heavy</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-6"
+                    data-genres="visual novel|horror|romance"
+                    data-title="tsukihime" hidden
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/tsukihime.jpg"
+                        alt="tsukihime cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>tsukihime <small>(2000)</small></h3>
+                      <p>a supernatural visual novel of vampires, romance, mystery, and blue midnight.</p>
+                      <ul aria-label="Genres">
+                        <li>visual novel</li>
+                        <li>horror</li>
+                        <li>romance</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-7"
+                    data-genres="visual novel|horror|mystery"
+                    data-title="higurashi when they cry" hidden
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/higu.jpg"
+                        alt="higurashi when they cry cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>higurashi when they cry <small>(2002)</small></h3>
+                      <p>rural summer, psychological horror, and the fragile work of believing your friends.</p>
+                      <ul aria-label="Genres">
+                        <li>visual novel</li>
+                        <li>horror</li>
+                        <li>mystery</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-8"
+                    data-genres="arcade|gothic"
+                    data-title="deathsmiles" hidden
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/deathsmiles.jpg"
+                        alt="deathsmiles cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>deathsmiles <small>(2007)</small></h3>
+                      <p>gothic arcade shooting with wind-up toys, haunted castles, and cute witches.</p>
+                      <ul aria-label="Genres">
+                        <li>arcade</li>
+                        <li>gothic</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-9"
+                    data-genres="adventure|fantasy"
+                    data-title="the legend of zelda: twilight princess" hidden
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/tp.png"
+                        alt="the legend of zelda: twilight princess cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>the legend of zelda: twilight princess <small>(2006)</small></h3>
+                      <p>a shadow-stained fantasy adventure of quiet villages, puzzles, and twilight.</p>
+                      <ul aria-label="Genres">
+                        <li>adventure</li>
+                        <li>fantasy</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-10"
+                    data-genres="strategy|story-heavy"
+                    data-title="fuga: melodies of steel" hidden
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/fuga.jpg"
+                        alt="fuga: melodies of steel cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>fuga: melodies of steel <small>(2021)</small></h3>
+                      <p>turn-based strategy aboard an enormous tank; tender, dangerous, and beautifully drawn.</p>
+                      <ul aria-label="Genres">
+                        <li>strategy</li>
+                        <li>story-heavy</li>
+                      </ul>
+                    </div>
+                  </article>
+                  <article
+                    class="recommendation-card"
+                    id="recommendation-11"
+                    data-genres="jrpg|adventure"
+                    data-title="touhou: scarlet curiosity" hidden
+                  >
+                    <div class="cover-wrap">
+                      <img
+                        src="https://sword-of-moonlight.moe/images/2hu.jpg"
+                        alt="touhou: scarlet curiosity cover"
+                        loading="lazy"
+                      />
+                      <span hidden>tonight's pick</span>
+                    </div>
+                    <div class="recommendation-copy">
+                      <h3>touhou: scarlet curiosity <small>(2014)</small></h3>
+                      <p>a bright fan-made action rpg detour through familiar places and bullet patterns.</p>
+                      <ul aria-label="Genres">
+                        <li>jrpg</li>
+                        <li>adventure</li>
+                      </ul>
+                    </div>
+                  </article>
+              </div>
+              <button type="button" class="text-button show-more" id="show-more">
+                <span aria-hidden="true">▾</span> open the rest of the shelf (6)
+              </button>
+            </div>
+          </section>
+
+        <nav class="page-pagination" aria-label="More rooms">
+          <a href="./music.html" rel="prev">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            <span>
+              <small>previous room</small>
+              <b>/midnight-fm</b>
+            </span>
+          </a>
+          <a href="./gallery.html" rel="next">
+            <span>
+              <small>next room</small>
+              <b>/scrapbook</b>
+            </span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </nav>
+
+          <footer class="site-footer">
+            <div class="footer-ornament" aria-hidden="true">
+              ‧₊˚✧ ⊹ ˚ . ✧˚₊‧
+            </div>
+            <p>
+              a dark-moe personal homepage study · original interface, borrowed
+              pixels credited in neighbors.
+            </p>
+            <p>
+              no cookies · no analytics · your letters never leave your browser
+            </p>
+            <nav aria-label="Footer navigation">
+              <a href="./about.html">about</a>
+              <a href="./guestbook.html">guestbook</a>
+              <a href="./links.html">credits</a>
+              <a href="#main-content" id="back-to-top">back to top <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+            </nav>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./js/shrine.js"></script>
+  </body>
+</html>
